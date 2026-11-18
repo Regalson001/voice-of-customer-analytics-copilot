@@ -1,0 +1,402 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI-powered Voice of Customer analytics and conversational intelligence platform.">
+  <title>InsightIQ — Voice of Customer Analytics</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">✦</div>
+      <div>
+        <h2>InsightIQ</h2>
+        <span>Customer Intelligence</span>
+      </div>
+    </div>
+
+    <div class="workspace">
+      <span class="workspace-label">WORKSPACE</span>
+      <div class="workspace-select">
+        <div class="workspace-avatar">AC</div>
+        <div>
+          <strong>Acme Corporation</strong>
+          <small>Business workspace</small>
+        </div>
+        <span class="chevron">⌄</span>
+      </div>
+    </div>
+
+    <nav class="navigation">
+      <span class="nav-heading">ANALYTICS</span>
+
+      <a href="#overview" class="nav-link active">
+        <span>▦</span> Overview
+      </a>
+      <a href="#sentiment" class="nav-link">
+        <span>◉</span> Sentiment Analysis
+      </a>
+      <a href="#topics" class="nav-link">
+        <span>⌘</span> Topic Intelligence
+      </a>
+      <a href="#feedback" class="nav-link">
+        <span>▤</span> Feedback Explorer
+      </a>
+
+      <span class="nav-heading second-heading">INTELLIGENCE</span>
+
+      <a href="#copilot" class="nav-link">
+        <span>✧</span> AI Co-Pilot
+        <span class="nav-badge">AI</span>
+      </a>
+      <a href="#monitoring" class="nav-link">
+        <span>◷</span> AI Monitoring
+      </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="upgrade-card">
+        <div class="upgrade-icon">✦</div>
+        <strong>Intelligence Hub</strong>
+        <p>Turn customer feedback into better decisions.</p>
+        <a href="#copilot">Explore AI Co-Pilot →</a>
+      </div>
+
+      <div class="profile">
+        <div class="profile-avatar">SO</div>
+        <div>
+          <strong>Stephen Oyugi</strong>
+          <small>Administrator</small>
+        </div>
+        <span class="chevron">•••</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <header class="topbar">
+      <div class="breadcrumb">
+        Workspace <span>/</span> Analytics Overview
+      </div>
+
+      <div class="topbar-actions">
+        <span class="live-indicator">
+          <span></span> Demo environment
+        </span>
+        <button class="icon-button" aria-label="Notifications">♧</button>
+        <div class="top-avatar">SO</div>
+      </div>
+    </header>
+
+    <div class="page-content">
+
+      <!-- PAGE INTRO -->
+      <section class="page-heading" id="overview">
+        <div>
+          <span class="eyebrow">CUSTOMER INTELLIGENCE PLATFORM</span>
+          <h1>Voice of Customer</h1>
+          <p>Understand your customers. Discover patterns. Make smarter decisions.</p>
+        </div>
+
+        <div class="heading-actions">
+          <select id="dateFilter" aria-label="Select date range">
+            <option value="7">Last 7 days</option>
+            <option value="30" selected>Last 30 days</option>
+            <option value="90">Last 90 days</option>
+          </select>
+          <button class="primary-button" id="exportButton">
+            ↓ Export report
+          </button>
+        </div>
+      </section>
+
+      <!-- KPI CARDS -->
+      <section class="kpi-grid">
+
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span>Total Feedback</span>
+            <span class="kpi-icon purple">▤</span>
+          </div>
+          <h2 id="totalFeedback">2,480</h2>
+          <div class="kpi-bottom">
+            <span class="positive">↑ 12.8%</span>
+            <span>vs previous period</span>
+          </div>
+        </article>
+
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span>Positive Sentiment</span>
+            <span class="kpi-icon green">↗</span>
+          </div>
+          <h2 id="positiveRate">68.4%</h2>
+          <div class="kpi-bottom">
+            <span class="positive">↑ 5.2%</span>
+            <span>vs previous period</span>
+          </div>
+        </article>
+
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span>Negative Feedback</span>
+            <span class="kpi-icon red">↘</span>
+          </div>
+          <h2 id="negativeRate">18.2%</h2>
+          <div class="kpi-bottom">
+            <span class="negative">↑ 2.1%</span>
+            <span>vs previous period</span>
+          </div>
+        </article>
+
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span>Customer Satisfaction</span>
+            <span class="kpi-icon blue">☆</span>
+          </div>
+          <h2 id="satisfaction">84.6%</h2>
+          <div class="kpi-bottom">
+            <span class="positive">↑ 3.7%</span>
+            <span>vs previous period</span>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- CHARTS -->
+      <section class="analytics-grid">
+
+        <article class="panel sentiment-panel" id="sentiment">
+          <div class="panel-header">
+            <div>
+              <h3>Sentiment Distribution</h3>
+              <p>Customer feedback breakdown</p>
+            </div>
+            <span class="panel-menu">•••</span>
+          </div>
+
+          <div class="sentiment-content">
+            <div class="doughnut-wrapper">
+              <canvas id="sentimentChart"></canvas>
+              <div class="doughnut-center">
+                <strong>68.4%</strong>
+                <span>Positive</span>
+              </div>
+            </div>
+
+            <div class="legend">
+              <div><span class="legend-dot positive-dot"></span> Positive <strong>68.4%</strong></div>
+              <div><span class="legend-dot neutral-dot"></span> Neutral <strong>13.4%</strong></div>
+              <div><span class="legend-dot negative-dot"></span> Negative <strong>18.2%</strong></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel trend-panel">
+          <div class="panel-header">
+            <div>
+              <h3>Customer Feedback Trends</h3>
+              <p>Feedback activity over time</p>
+            </div>
+            <select id="trendFilter" aria-label="Trend type">
+              <option value="all">All sentiment</option>
+              <option value="positive">Positive</option>
+              <option value="negative">Negative</option>
+            </select>
+          </div>
+          <div class="chart-container">
+            <canvas id="trendChart"></canvas>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- TOPICS -->
+      <section class="panel topics-panel" id="topics">
+        <div class="panel-header">
+          <div>
+            <h3>Emerging Customer Topics</h3>
+            <p>Frequently mentioned themes in customer feedback</p>
+          </div>
+          <span class="insight-tag">TOPIC INTELLIGENCE</span>
+        </div>
+
+        <div class="topic-grid" id="topicGrid">
+          <div class="topic-item">
+            <div class="topic-top">
+              <span>Delivery Experience</span>
+              <strong>34%</strong>
+            </div>
+            <div class="progress-track"><div style="width:34%"></div></div>
+            <small>Delivery delays and shipping updates</small>
+          </div>
+
+          <div class="topic-item">
+            <div class="topic-top">
+              <span>Product Quality</span>
+              <strong>27%</strong>
+            </div>
+            <div class="progress-track"><div style="width:27%"></div></div>
+            <small>Product performance and reliability</small>
+          </div>
+
+          <div class="topic-item">
+            <div class="topic-top">
+              <span>Customer Support</span>
+              <strong>21%</strong>
+            </div>
+            <div class="progress-track"><div style="width:21%"></div></div>
+            <small>Response time and support resolution</small>
+          </div>
+
+          <div class="topic-item">
+            <div class="topic-top">
+              <span>Pricing & Value</span>
+              <strong>18%</strong>
+            </div>
+            <div class="progress-track"><div style="width:18%"></div></div>
+            <small>Pricing, affordability and value</small>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI COPILOT -->
+      <section class="copilot-section" id="copilot">
+
+        <div class="copilot-heading">
+          <div>
+            <span class="eyebrow">GENERATIVE ANALYTICS</span>
+            <h2>Meet your AI Co-Pilot</h2>
+            <p>Ask questions about your customers and explore your data conversationally.</p>
+          </div>
+          <div class="ai-status"><span></span> Intelligence engine ready</div>
+        </div>
+
+        <div class="copilot-layout">
+
+          <div class="chat-panel">
+            <div class="chat-header">
+              <div class="ai-avatar">✦</div>
+              <div>
+                <strong>InsightIQ Assistant</strong>
+                <small>Customer intelligence assistant</small>
+              </div>
+              <span class="online-dot"></span>
+            </div>
+
+            <div class="chat-messages" id="chatMessages" aria-live="polite">
+              <div class="message assistant-message">
+                <div class="message-avatar">✦</div>
+                <div class="message-body">
+                  <strong>InsightIQ</strong>
+                  <p>Hello Stephen! I'm ready to help you understand your customer feedback.</p>
+                  <p>Try asking me about sentiment, customer complaints, or emerging topics.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="suggestions">
+              <button class="suggestion" data-question="What is the sentiment breakdown?">Sentiment breakdown</button>
+              <button class="suggestion" data-question="What are the biggest customer complaints?">Biggest complaints</button>
+              <button class="suggestion" data-question="Show me a feedback report">Feedback report</button>
+            </div>
+
+            <form id="chatForm" class="chat-input-area">
+              <input
+                type="text"
+                id="chatInput"
+                placeholder="Ask anything about your customer feedback..."
+                autocomplete="off"
+                required
+              >
+              <button type="submit" aria-label="Send message">↑</button>
+            </form>
+            <p class="demo-disclaimer">Demo assistant uses sample data and simulated analytics. It is not connected to an LLM.</p>
+          </div>
+
+          <aside class="insight-sidebar">
+            <div class="insight-card">
+              <span class="insight-icon">✧</span>
+              <h3>AI Insight</h3>
+              <p>Delivery experience is currently the most frequently mentioned topic. Review shipping communication and delivery performance.</p>
+            </div>
+
+            <div class="insight-card">
+              <span class="insight-icon">◉</span>
+              <h3>Suggested Actions</h3>
+              <ul>
+                <li>Investigate recurring delivery complaints.</li>
+                <li>Review support response times.</li>
+                <li>Monitor product quality feedback.</li>
+              </ul>
+            </div>
+
+            <div class="insight-card monitoring-card" id="monitoring">
+              <span class="insight-icon">◷</span>
+              <h3>AI System Status</h3>
+              <div class="status-row"><span>Frontend engine</span><strong>Active</strong></div>
+              <div class="status-row"><span>Sample data</span><strong>Loaded</strong></div>
+              <div class="status-row"><span>LLM connection</span><strong class="not-connected">Not connected</strong></div>
+            </div>
+          </aside>
+
+        </div>
+      </section>
+
+      <!-- FEEDBACK TABLE -->
+      <section class="panel feedback-panel" id="feedback">
+        <div class="panel-header feedback-heading">
+          <div>
+            <h3>Recent Customer Feedback</h3>
+            <p>Explore individual customer responses</p>
+          </div>
+          <input type="search" id="feedbackSearch" placeholder="Search feedback...">
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>CUSTOMER</th>
+                <th>FEEDBACK</th>
+                <th>TOPIC</th>
+                <th>SENTIMENT</th>
+                <th>DATE</th>
+              </tr>
+            </thead>
+            <tbody id="feedbackTable"></tbody>
+          </table>
+        </div>
+        <div class="table-footer">
+          <span id="tableCount">Showing 6 feedback records</span>
+          <span>Sample dataset</span>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>© 2026 InsightIQ · Customer Intelligence Platform</span>
+        <span>Built for intelligent decision-making.</span>
+      </footer>
+
+    </div>
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
